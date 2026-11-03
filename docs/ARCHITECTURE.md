@@ -1,67 +1,119 @@
-# Portfolio architecture
+# RED THREAD — Technical Architecture
 
-Status: **proposed**. No application code or framework has been chosen yet. Confirm the stack, publishing needs, and content workflow in [QUESTIONS.md](QUESTIONS.md) before implementation.
+**Status:** React direction approved. Exact dependency versions must be resolved and tested by the implementation agent before installation.
 
-## Recommended approach
+## 1. Foundation
 
-Use a fast, mostly static site with content stored in the repository. **Astro** is the provisional framework choice because a portfolio is primarily pages and images, while small interactive elements can be added only where needed. Astro [prerenders pages by default](https://docs.astro.build/en/guides/on-demand-rendering/) and supports [build-time content collections](https://docs.astro.build/en/reference/modules/astro-content/) for structured project records. If the questionnaire names a different stack or a visual editor is required, revisit this decision. Avoid a database or server until a real feature requires one.
+- React 19
+- Vite
+- TypeScript
+- React Router
+- Tailwind CSS (current compatible release)
+- Vercel deployment
 
-## Proposed pages
+This is a client-focused portfolio with static content and selective interaction. Do not introduce a database or backend without a concrete feature requirement.
 
-| Route | Purpose | Content source |
-| --- | --- | --- |
-| `/` | Introduction, selected work, short about, contact action | Site profile and featured project records |
-| `/work/[slug]/` | Project case study | One project record and its media |
-| `/about/` | Longer bio, skills, résumé link if useful | Site profile |
-| `/contact/` | Contact details or form if requested | Site settings |
-| `/404` | Recovery and route back to work | Static copy |
+## 2. Route architecture
 
-The final route list can be smaller. For a compact portfolio, About and Contact may be homepage sections rather than separate pages.
+| Route | Experience |
+|---|---|
+| `/` | CRT gateway |
+| `/portfolio` | Editorial portfolio |
+| `/portfolio/work/:slug` | Project case study |
+| `/puzzle` | Separate puzzle experience |
+| `/resume` | Print-friendly résumé |
 
-## Content model
+Add route-level lazy loading. The puzzle and 3D-heavy modules must not be loaded by the gateway or résumé route.
 
-Keep content separate from layout. Each project should have a stable `slug`, `title`, `summary`, `problem`, `audience`, `role`, `contributions`, `constraints`, `outcome`, `technologies`, `links`, `media` with alt text/captions, `credits`, and a `publish` flag. `outcome` may be qualitative; numbers require a source. Profile data should contain the displayed name, title, bio, contact method, social links, résumé link, and optional availability text.
-
-During build, validate required fields and link formats. Omit empty optional sections gracefully. Draft or confidential projects must not appear in generated public pages, feeds, or sitemaps.
-
-## Proposed folder layout
+## 3. Suggested structure
 
 ```text
-portfolio/
-  QUESTIONS.md
-  DESIGN.md
-  BRAND_PRESETS.md
-  ARCHITECTURE.md
-  src/
-    content.config.ts
-    content/projects/
-    components/
-    layouts/
-    pages/
-    styles/
-  public/
-    images/
-    files/
+red-thread/
+├── public/
+│   ├── fonts/
+│   ├── images/
+│   ├── models/
+│   └── textures/
+├── src/
+│   ├── app/
+│   │   ├── router/
+│   │   └── providers/
+│   ├── experiences/
+│   │   ├── gateway/
+│   │   ├── editorial/
+│   │   ├── puzzle/
+│   │   └── resume/
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── gallery/
+│   │   ├── motion/
+│   │   └── three/
+│   ├── content/
+│   │   └── projects/
+│   ├── hooks/
+│   ├── lib/
+│   ├── styles/
+│   │   ├── tokens.css
+│   │   ├── typography.css
+│   │   ├── global.css
+│   │   └── print.css
+│   └── main.tsx
+├── asset-vault/
+├── docs/
+└── package.json
 ```
 
-This is a target layout, not a claim that those directories already exist.
+## 4. Rendering and performance
 
-## Rendering and behavior
+- Lazy-load route bundles and all 3D scenes.
+- Keep the gateway and résumé lightweight.
+- Use native CSS scroll snapping before adding a smooth-scroll library.
+- Prefer Motion for ordinary React animation; use GSAP only for complex timelines.
+- Use R3F v9 with React 19 for the stable baseline. Do not copy v10 alpha/WebGPU example dependencies into the production app.
+- Pause or reduce 3D rendering when off-screen where practical.
+- Provide non-WebGL fallbacks.
+- Respect reduced motion.
+- Optimise images, fonts, GLB and texture sizes.
+- Avoid multiple always-running canvases.
+- Test on mobile, integrated GPUs and lower-powered devices.
 
-- Generate pages at build time. Use semantic HTML and minimal client-side JavaScript.
-- Use responsive image sizes and modern formats where practical; keep originals only when useful. Give every informative image meaningful alt text and a caption where context matters.
-- Use direct email or an external booking link if selected. If a form is requested, choose a supported form service or backend and specify spam prevention, delivery, privacy, and failure states before adding it.
-- Keep secrets out of source control. Public analytics, embeds, and third-party scripts require a deliberate decision because they affect performance and privacy.
-- Centralize site metadata, canonical URL, social sharing image, sitemap rules, and robots behavior once a domain is known.
+## 5. Content model
 
-## Quality and release checks
+Each project record should support:
+`slug`, `title`, `summary`, `problem`, `audience`, `role`, `contributions`, `constraints`, `decisions`, `outcome`, `status`, `technologies`, `links`, `media`, `credits`, `publish`.
 
-- Verify every public claim, project attribution, image permission, contact link, and downloadable file against the completed questionnaire.
-- Check keyboard navigation, focus visibility, reduced motion, color contrast, image alternatives, and mobile layout.
-- Build and preview the production output; check internal/external links, missing images, metadata, and 404 behavior.
-- Measure representative pages for load performance. Set concrete budgets after the chosen assets and hosting are known; prioritize image weight and font loading.
-- Publish only after the domain, hosting target, and final public content are confirmed.
+Do not publish unapproved claims, confidential work or unsupported metrics.
 
-## Open decisions
+## 6. SEO and accessibility
 
-Audience and featured projects; final content and imagery; stack and content editing workflow; whether separate About/Contact pages are useful; contact form versus direct link; analytics; domain and hosting. These decisions come from [QUESTIONS.md](QUESTIONS.md), not assumptions about other projects in the coding directory.
+A Vite SPA requires deliberate SEO handling:
+- Route-specific document titles and descriptions.
+- Open Graph and social preview metadata.
+- Sitemap and robots configuration.
+- Semantic HTML and keyboard navigation.
+- Focus-visible states.
+- Reduced-motion support.
+- Meaningful image alt text.
+- Static fallback content if animation or WebGL fails.
+
+If search indexing becomes a primary requirement, evaluate prerendering or a React framework before launch rather than assuming client rendering is sufficient.
+
+## 7. Dependency ownership
+
+- Use one icon family: Lucide React.
+- Use shadcn/ui as source-owned accessible primitives.
+- Use ReactBits selectively; copy only chosen components.
+- OriginKit components are subject to OriginKit's component licence and terms.
+- Keep R3F/Drei versions aligned with React 19.
+- Keep `react-three-examples` v10/WebGPU as a reference gallery only for this stable baseline.
+- Do not install every tool listed in the asset vault.
+
+## 8. Acceptance gates
+
+1. Dependency versions resolve without peer-dependency overrides.
+2. Production build succeeds.
+3. Gateway and résumé do not load Three.js.
+4. Reduced-motion and no-WebGL fallbacks work.
+5. Routes work on direct refresh in Vercel.
+6. Print résumé has correct page breaks.
+7. Asset credits and licences are recorded.

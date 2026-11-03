@@ -1,0 +1,18 @@
+{
+  "pack": "RED THREAD Agent Handoff",
+  "created": "2026-11-03",
+  "contents": [
+    "README.md",
+    "docs/DESIGN.md",
+    "docs/TYPOGRAPHY.md",
+    "docs/ARCHITECTURE.md",
+    "docs/DEPENDENCIES.md",
+    "asset-vault/ASSET_VAULT.md",
+    "asset-vault/LICENSING.md",
+    "asset-vault/manifests/sources.json",
+    "asset-vault/IMPORT_QUEUE.md",
+    "src-blueprint/README.md"
+  ],
+  "downloaded_third_party_repositories": false,
+  "reason": "The execution environment could not resolve github.com. This pack provides verified source URLs, curated selection guidance, compatibility notes and licence checks; it does not claim to contain vendored third-party source or media."
+}

@@ -1,54 +1,127 @@
-# Portfolio design direction
+# RED THREAD — Design System & Experience Specification
 
-Status: **provisional**. This is a buildable starting direction, not a claim that the personal brand has been decided. Update it using the answers in [QUESTIONS.md](QUESTIONS.md). Color choices live in [BRAND_PRESETS.md](BRAND_PRESETS.md).
+**Status:** Direction approved; detailed composition and content still require review.
 
-## Purpose and experience
+## 1. Experience map
 
-The site should let a visitor understand the person's work in seconds, then inspect the evidence. The portfolio is an **Experience** surface: projects and their artifacts lead, while navigation and decoration stay quiet. The first viewport should feature a meaningful piece of work or an honest, specific project statement once the content is known. Avoid generic claims such as “passionate developer” and invented metrics.
+| Route | Experience | Purpose |
+|---|---|---|
+| `/` | CRT gateway | Three clear destinations |
+| `/portfolio` | Editorial portfolio | Professional identity and work |
+| `/portfolio/work/:slug` | Case study | Detailed project proof |
+| `/puzzle` | Puzzle portfolio | Separate cinematic interactive narrative |
+| `/resume` | Plain résumé | Accessible print-ready document |
 
-The likely visitor path is: understand the specialty → scan selected work → open a case study → assess the person's contribution and outcome → contact them. The primary action should use the contact method selected in the questionnaire. A secondary action can link to a résumé or profile if supplied.
+The résumé must be directly accessible without completing the CRT animation.
 
-## Provisional visual concept
+## 2. Gateway
 
-**Working concept: an editorial collection of work.** Use strong typography, generous space, and project imagery as the dominant visual material. Let each project have its own clear identity within a consistent page frame. The recommended initial palette is **01 · Warm Editorial** from the presets; it can be replaced by switching semantic color tokens.
+A retro CRT display is the threshold, not the visual identity of the whole website.
 
-This concept should change if the answers point to a different audience or work type. For example, an illustration portfolio needs a denser gallery; a software engineering portfolio needs clearer architecture and outcome evidence.
+Sequence:
+1. Near-black screen.
+2. Restrained power-on cue.
+3. Brief CRT activation / vertical collapse.
+4. Boxy monospace welcome text.
+5. Three accessible destinations:
+   - Enter the Portfolio
+   - Enter the Puzzle
+   - View / Print Résumé
 
-## Information hierarchy
+Glitching must be brief and must never obscure choices. No autoplay audio. Include skip-intro, keyboard support, visible focus, reduced-motion mode and a functional static fallback.
 
-1. Identity: name, specialty, and a specific promise or point of view.
-2. Selected work: 3–6 projects, strongest first; visible image or artifact, concise problem, role, and result.
-3. Case studies: context, constraints, contribution, process or key decisions, outcome, links, and credits.
-4. About: focused biography, capabilities, working style, and optional portrait.
-5. Contact: a direct invitation and one obvious way to respond.
+Suggested copy is provisional:
+```text
+WAFIQ NAWAZ C.
+PERSONAL INTERFACE / 2026
 
-The homepage may combine these into one scroll, with dedicated case study routes for deeper work. Show only supplied, publishable content.
+WELCOME, VISITOR.
+THREE WAYS TO EXPLORE.
 
-## Layout and responsive behavior
+[ 01 ] ENTER THE PORTFOLIO
+[ 02 ] ENTER THE PUZZLE
+[ 03 ] VIEW / PRINT RESUME
 
-- Use a restrained content width for reading and a wider frame for project imagery. Let featured work interrupt the grid where the assets justify it.
-- Desktop: clear top navigation, large project previews, and case study content with readable line lengths. Mobile: single column, thumb-friendly links, readable project captions, and no essential hover behavior.
-- Use a consistent spacing scale and visual rhythm, but allow project imagery to determine each section's height. Avoid equal-height cards that crop important evidence.
-- Case studies should use scannable subheads and captions so visitors can understand the work quickly.
+SELECT YOUR PATH _
+```
 
-## Typography and imagery
+## 3. Editorial direction
 
-- Start with a robust system sans for body text and a contrasting display face only if it suits the chosen brand. Decide exact fonts after the questionnaire; licensing and loading cost matter.
-- Body text should generally be at least 16px with comfortable line height. Keep long paragraphs around 60–75 characters per line.
-- Prefer real project screenshots, diagrams, photos, and artifacts. Captions should explain why an image matters. Provide alt text describing content or purpose, not decorative filler.
-- If project visuals are unavailable, use honest text-led layouts and simple diagrams based on verified project facts. Do not fabricate screenshots.
+**Japanese contemporary editorial design fused with experimental art-book composition.**
 
-## Interaction and accessibility
+This is an art-direction reference, not a literal Japanese theme. Avoid cherry blossoms, anime references, decorative kanji, stereotyped motifs or meaningless Japanese text.
 
-- Keep motion purposeful: subtle transitions can clarify navigation or project changes. Respect `prefers-reduced-motion`.
-- Provide visible keyboard focus, semantic headings, skip navigation, descriptive link labels, and accessible menus if one is needed.
-- Maintain WCAG AA text contrast in the selected preset. Accent colors may be decorative when their contrast is insufficient for small text.
-- Ensure touch targets are comfortably sized and the layout works at narrow widths and 200% zoom.
+Design characteristics:
+- Asymmetrical editorial grids.
+- Oversized, expressive but legible typography.
+- Deliberate negative space.
+- Art-directed photography and purposeful crops.
+- Small captions, indexes, page references and metadata only when meaningful.
+- Restrained print textures, paper grain and ink references.
+- Strong typographic hierarchy and image composition.
 
-## Design decisions to finalize after intake
+Avoid generic developer cards, fake terminals, cyberpunk/neon grids, arbitrary stamps and excessive UI ornament.
 
-- Audience and what the first viewport must prove.
-- Which project leads and what imagery is available.
-- Final palette, logo/wordmark, typography, and tone of voice.
-- Whether case studies are image-led, text-led, or mixed.
-- Contact action, résumé placement, and any availability message.
+## 4. Brand palette
+
+| Name | Hex | Role |
+|---|---|---|
+| Crimson | `#EB0E31` | Signature accent and strong statements |
+| Coral | `#FDA2AC` | Supporting expressive colour |
+| Plum | `#33212C` | Dark foundation and dark typography |
+| Sand | `#D8CFC2` | Warm neutral / paper surface |
+| Canary Yellow | `#E7C75A` | Sparse highlight |
+
+White must not dominate. Test contrast for every text and control combination. Never use colour alone to communicate state.
+
+## 5. Introductory portrait
+
+Use the user's supplied `Wafiq.jpeg` as the source photograph. It is the authentic portrait. Do not substitute ASCII art, generate a different face or alter facial identity.
+
+Build the opening spread around the image's actual proportions. Final crop, position, background treatment and motion remain undecided until the real asset is placed in the layout. Avoid face distortion, aggressive glitching and awkward crops. Portrait must remain legible without animation.
+
+## 6. Editorial content sequence
+
+1. Introduction: portrait, approved name, short introduction and current focus.
+2. Selected work: projects as evidence, with role, contributions, decisions, constraints, status, outcomes and links.
+3. Capabilities: evidence-based skills, not inflated technology lists.
+4. About: approved education, interests and working philosophy.
+5. Contact: verified contact and professional links.
+
+Do not invent metrics, outcomes, users, testimonials, qualifications or project status. Mark drafts clearly.
+
+## 7. Motion language
+
+Motion should provide orientation, reveal content, transition between sections, establish hierarchy or provide feedback.
+
+Approved techniques to explore:
+- Controlled typography reveals.
+- Image masks and unmasking.
+- Restrained parallax where it improves composition.
+- Section-index transitions.
+- Carefully timed colour-field changes.
+- Small hover and focus responses.
+- Optional shader or 3D effects used as a deliberate focal moment.
+
+Avoid scroll hijacking, long forced intros, constant animation, excessive parallax, indiscriminate glitch, and motion that delays access to work.
+
+Use native CSS scroll snapping first. It must not trap readers. Respect `prefers-reduced-motion`; provide static fallbacks.
+
+## 8. Three.js / shader restraint
+
+3D is an optional enhancement, not the default background of every page. Lazy-load scenes. Prefer one purposeful scene over multiple simultaneous canvases. Pause rendering when off-screen or when the page is hidden where practical. Provide non-WebGL fallbacks and test mobile/integrated GPUs.
+
+## 9. Résumé
+
+Plain paper-style layout, readable type, no elaborate animation, dedicated print CSS, correct page breaks and direct access. PDF only after résumé content is approved.
+
+## 10. Acceptance criteria
+
+- Visitor can identify the three entry paths immediately.
+- Every destination is keyboard-accessible.
+- Professional information is never locked behind the puzzle.
+- Portfolio work and contributions are easy to inspect.
+- Portrait remains authentic.
+- Palette and typography are coherent and accessible.
+- Animation can be disabled without losing content.
+- Print résumé works independently.

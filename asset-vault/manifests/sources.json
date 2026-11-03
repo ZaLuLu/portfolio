@@ -1,0 +1,189 @@
+[
+  {
+    "name": "OriginKit",
+    "url": "https://www.originkit.dev/",
+    "docs": "https://www.originkit.dev/docs/licensing",
+    "category": "components",
+    "usage": "Curated components; obtain through official site/editor/MCP. Check terms; do not redistribute component source as a library.",
+    "status": "source-only"
+  },
+  {
+    "name": "ShaderGradient",
+    "url": "https://github.com/ruucm/shadergradient",
+    "category": "shaders",
+    "package": "@shadergradient/react",
+    "usage": "Animated gradient renderer; React 18/19 according to current README; match Fiber major to React.",
+    "status": "source-only"
+  },
+  {
+    "name": "Liquid Logo",
+    "url": "https://github.com/collidingScopes/liquid-logo",
+    "category": "shaders",
+    "usage": "Liquid/metallic logo shader; inspect exact repo licence and source assets.",
+    "status": "source-only"
+  },
+  {
+    "name": "ReactBits",
+    "url": "https://github.com/DavidHDev/react-bits",
+    "demo": "https://reactbits.dev/",
+    "category": "components",
+    "usage": "Copy selected components; check MIT + Commons Clause and third-party notices.",
+    "status": "source-only"
+  },
+  {
+    "name": "pmndrs/react-three-examples",
+    "url": "https://github.com/pmndrs/react-three-examples",
+    "demo": "https://pmndrs.github.io/react-three-examples/",
+    "category": "r3f-reference",
+    "usage": "R3F v10 alpha/WebGPU-first gallery; reference only for stable R3F v9 baseline.",
+    "status": "reference-only"
+  },
+  {
+    "name": "pmndrs/examples",
+    "url": "https://github.com/pmndrs/examples",
+    "category": "r3f-reference",
+    "usage": "Inspect examples and individual asset credits/licences.",
+    "status": "source-only"
+  },
+  {
+    "name": "React Three Fiber",
+    "url": "https://github.com/pmndrs/react-three-fiber",
+    "docs": "https://r3f.docs.pmnd.rs/",
+    "category": "runtime",
+    "usage": "R3F v9 pairs with React 19.",
+    "status": "dependency"
+  },
+  {
+    "name": "Drei",
+    "url": "https://github.com/pmndrs/drei",
+    "docs": "https://drei.docs.pmnd.rs/",
+    "category": "runtime",
+    "usage": "Select stable release compatible with R3F v9.",
+    "status": "dependency"
+  },
+  {
+    "name": "React Three Postprocessing",
+    "url": "https://github.com/pmndrs/react-postprocessing",
+    "category": "runtime",
+    "usage": "Optional post-processing; validate peer compatibility.",
+    "status": "dependency-candidate"
+  },
+  {
+    "name": "awesome-3d-assets",
+    "url": "https://github.com/glbkit-tools/awesome-3d-assets",
+    "category": "asset-index",
+    "usage": "Index only; verify every destination asset's licence.",
+    "status": "index-only"
+  },
+  {
+    "name": "Poly Haven",
+    "url": "https://polyhaven.com/",
+    "license": "https://polyhaven.com/license",
+    "category": "3d-assets",
+    "usage": "HDRI, models and PBR textures; Poly Haven states assets are CC0.",
+    "status": "asset-source"
+  },
+  {
+    "name": "Khronos glTF Sample Assets",
+    "url": "https://github.com/KhronosGroup/glTF-Sample-Assets",
+    "demo": "https://github.khronos.org/glTF-Assets/",
+    "category": "3d-assets",
+    "usage": "Check each model directory's own licence and credits.",
+    "status": "asset-source"
+  },
+  {
+    "name": "Kenney",
+    "url": "https://kenney.nl/assets",
+    "category": "3d-assets",
+    "usage": "Verify licence per asset pack.",
+    "status": "asset-source"
+  },
+  {
+    "name": "NASA 3D Resources",
+    "url": "https://nasa3d.arc.nasa.gov/",
+    "category": "3d-assets",
+    "usage": "Verify individual asset terms and attribution.",
+    "status": "asset-source"
+  },
+  {
+    "name": "Smithsonian 3D",
+    "url": "https://3d.si.edu/",
+    "category": "3d-assets",
+    "usage": "Verify rights per object.",
+    "status": "asset-source"
+  },
+  {
+    "name": "Lucide React",
+    "url": "https://lucide.dev/",
+    "category": "icons",
+    "package": "lucide-react",
+    "usage": "Default icon family; do not mix icon sets.",
+    "status": "dependency"
+  },
+  {
+    "name": "Tabler Icons",
+    "url": "https://tabler.io/icons",
+    "category": "icons",
+    "usage": "Alternative only; do not mix with Lucide by default.",
+    "status": "alternative"
+  },
+  {
+    "name": "Motion",
+    "url": "https://motion.dev/",
+    "category": "animation",
+    "package": "motion",
+    "usage": "Default React animation library.",
+    "status": "dependency-candidate"
+  },
+  {
+    "name": "GSAP",
+    "url": "https://gsap.com/",
+    "category": "animation",
+    "usage": "Complex timelines only; verify current licence.",
+    "status": "conditional"
+  },
+  {
+    "name": "Embla Carousel",
+    "url": "https://www.embla-carousel.com/",
+    "category": "gallery",
+    "package": "embla-carousel-react",
+    "usage": "Custom carousel/gallery interactions.",
+    "status": "dependency-candidate"
+  },
+  {
+    "name": "Yet Another React Lightbox",
+    "url": "https://yet-another-react-lightbox.com/",
+    "category": "gallery",
+    "package": "yet-another-react-lightbox",
+    "usage": "Optional fullscreen image viewer; verify current licence.",
+    "status": "dependency-candidate"
+  },
+  {
+    "name": "shadcn/ui",
+    "url": "https://ui.shadcn.com/",
+    "category": "components",
+    "usage": "Source-owned accessible primitives; install only required components.",
+    "status": "source-based"
+  },
+  {
+    "name": "Lenis",
+    "url": "https://github.com/darkroomengineering/lenis",
+    "category": "scroll",
+    "usage": "Optional smooth scrolling; native CSS scroll snapping first.",
+    "status": "conditional"
+  },
+  {
+    "name": "Zustand",
+    "url": "https://github.com/pmndrs/zustand",
+    "category": "state",
+    "usage": "Only if shared state needs exceed local state/context.",
+    "status": "conditional"
+  },
+  {
+    "name": "Leva",
+    "url": "https://github.com/pmndrs/leva",
+    "category": "devtools",
+    "usage": "Developer controls for tuning 3D scenes; development-only by default.",
+    "status": "dev-only"
+  }
+]
