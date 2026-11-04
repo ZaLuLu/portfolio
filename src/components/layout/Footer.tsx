@@ -1,47 +1,46 @@
 import React from 'react';
 import { Container } from '@/components/ui/Container';
 import { profile } from '@/content/profile';
-import { Mail, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/ui/Icons';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="site-footer border-t border-[#D8CFC2]/10 bg-[#1E131A] py-12 mt-20 text-xs font-mono text-[#B3A89A] print:hidden">
+    <footer className="site-footer border-t border-[#D8CFC2]/10 bg-[#1E131A] py-16 mt-32 text-xs font-mono text-[#857A6E] print:hidden">
       <Container width="wide">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Identity & Location */}
-          <div className="space-y-2">
-            <div className="text-[#D8CFC2] font-semibold text-sm font-sans">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          {/* Identity & Colophon */}
+          <div className="md:col-span-5 space-y-2">
+            <div className="text-[#D8CFC2] font-display text-lg text-white">
               {profile.name}
             </div>
-            <div className="text-[#B3A89A]/80">
-              {profile.title}
-            </div>
-            <div className="text-[#857A6E] tabular-nums">
+            <p className="text-xs text-[#857A6E] font-light font-sans max-w-sm leading-relaxed">
+              {profile.tagline}
+            </p>
+            <div className="text-[11px] text-[#857A6E] tabular-nums pt-1">
               {profile.location} · {profile.timeZone}
             </div>
           </div>
 
           {/* Direct channels */}
-          <div className="space-y-2">
-            <div className="text-[#D8CFC2] font-semibold tracking-wider uppercase text-[11px]">
-              Direct Communication
+          <div className="md:col-span-4 space-y-2 font-mono">
+            <div className="text-[#D8CFC2]/70 text-xs font-medium">
+              Contact
             </div>
             <div>
               <a
                 href={`mailto:${profile.contactEmail}`}
-                className="inline-flex items-center gap-1.5 text-[#FDA2AC] hover:text-[#EB0E31] transition-colors"
+                className="text-[#FDA2AC] hover:text-[#EB0E31] transition-colors"
               >
-                <Mail className="w-3.5 h-3.5" />
-                <span>{profile.contactEmail}</span>
+                {profile.contactEmail}
               </a>
             </div>
-            <div className="flex items-center gap-4 pt-1">
+            <div className="flex items-center gap-6 pt-2">
               <a
                 href={profile.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[#D8CFC2]/70 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-[#D8CFC2]/70 hover:text-white transition-colors"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>GitHub</span>
@@ -51,7 +50,7 @@ export const Footer: React.FC = () => {
                 href={profile.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[#D8CFC2]/70 hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 text-[#D8CFC2]/70 hover:text-white transition-colors"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" />
                 <span>LinkedIn</span>
@@ -60,16 +59,12 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Architectural Notes */}
-          <div className="space-y-1 text-right md:text-right">
-            <div className="text-[#857A6E]">
-              RED THREAD Engine · React 19 + Vite
-            </div>
-            <div className="text-[#857A6E]">
-              Designed with Japanese contemporary editorial discipline
-            </div>
-            <div className="text-[#EB0E31] font-mono text-[11px] pt-1">
-              Zero invented claims. Verified proof.
+          {/* Colophon Specification */}
+          <div className="md:col-span-3 space-y-1 text-left md:text-right text-[11px] text-[#857A6E]">
+            <div>RED THREAD Digital Publication</div>
+            <div>React 19 · Vite · TypeScript</div>
+            <div className="text-[#D8CFC2]/40 pt-1">
+              © {new Date().getFullYear()} Wafiq Nawaz
             </div>
           </div>
         </div>

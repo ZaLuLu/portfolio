@@ -117,3 +117,14 @@ If search indexing becomes a primary requirement, evaluate prerendering or a Rea
 5. Routes work on direct refresh in Vercel.
 6. Print résumé has correct page breaks.
 7. Asset credits and licences are recorded.
+
+
+---
+
+## 9. Shared Component Design System Enforcement
+
+All shared components (`src/components/ui/`, `src/components/layout/`, and experience views) must strictly comply with the RED THREAD Permanent Design System Rules:
+- **No Library Default Aesthetics:** Never import an external component and use its default styles without stripping generic badges, pill shapes, glassmorphism, or colored card borders.
+- **Design Token Integration:** All typography, colors, and spatial geometry must map directly to the semantic design tokens in `src/styles/tokens.css`.
+- **Composition Over Repetition:** Avoid turning every piece of information into a card. Use typography, asymmetrical editorial grids, and active negative space (*Ma* 間).
+- **Mandatory 8 States:** Every interactive component must handle Default, Hover, Active, Focus-Visible, Loading, Disabled, Error, and Success states.

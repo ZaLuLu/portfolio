@@ -125,3 +125,26 @@ Plain paper-style layout, readable type, no elaborate animation, dedicated print
 - Palette and typography are coherent and accessible.
 - Animation can be disabled without losing content.
 - Print résumé works independently.
+
+
+---
+
+## 11. Permanent Design System Rules & Canon
+
+> These rules are permanent and mandatory for all existing and future pages, layouts, and components.
+
+### Strictly Prohibited Patterns
+- **No generic UI decoration:** No eyebrow text above headings; no uppercase section labels; no fake live counters, telemetry, coordinates, or system-status chips; no fake terminal prompts (`> AWAITING INPUT...`); no generic pill badges; no repetitive section numbering (`01`, `02`, `03` on every card); no arbitrary decorative icons.
+- **No generic SaaS aesthetics:** No repetitive 3-column card grids; no unnecessary rounded containers; no glassmorphism, glowing borders, or neon text shadows; no random gradient blobs.
+
+### Typography & Copy Invariants
+- Main headings stand independently. Never add an eyebrow or category label just to fill space.
+- Sentence case is the universal default.
+- Natural, direct, specific language. Zero generic startup buzzwords (*"building the future"*, *"innovative solutions"*).
+- Zero invented metrics, testimonials, or claims.
+
+### Visual Composition
+- Japanese contemporary editorial design fused with experimental art-book composition.
+- Asymmetrical layouts and active negative space (*Ma* 間).
+- Use the verified portrait (`Wafiq.jpeg`) with deliberate framing; never replace or distort identity.
+- The "W" mark is reserved for brand applications, not arbitrary decoration.

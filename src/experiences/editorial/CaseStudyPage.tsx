@@ -1,10 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Container } from '@/components/ui/Container';
-import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
 import { projects } from '@/content/projects';
-import { ArrowLeft, ExternalLink, CheckCircle2, AlertCircle } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/Icons';
 
 export const CaseStudyPage: React.FC = () => {
@@ -16,10 +14,9 @@ export const CaseStudyPage: React.FC = () => {
       <main id="main-content" className="py-24 text-center">
         <Container width="editorial">
           <div className="space-y-4">
-            <span className="font-mono text-xs text-[#EB0E31]">[ RECORD NOT FOUND ]</span>
-            <h1 className="font-display text-4xl text-white">Project Case Study Missing</h1>
-            <p className="text-sm text-[#D8CFC2]/70">
-              The project slug <code className="text-[#FDA2AC]">/{slug}</code> does not match any verified project records.
+            <h1 className="font-display text-4xl text-white">Project not found</h1>
+            <p className="text-sm text-[#D8CFC2]/70 font-light">
+              The project slug <code className="text-[#FDA2AC]">/{slug}</code> does not match any documented records.
             </p>
             <div className="pt-4">
               <Link
@@ -27,7 +24,7 @@ export const CaseStudyPage: React.FC = () => {
                 className="inline-flex items-center gap-2 text-sm text-[#EB0E31] hover:underline font-mono"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Return to Portfolio</span>
+                <span>Return to portfolio</span>
               </Link>
             </div>
           </div>
@@ -37,11 +34,11 @@ export const CaseStudyPage: React.FC = () => {
   }
 
   return (
-    <main id="main-content" className="py-12 sm:py-20 space-y-16">
-      {/* Header & Back link */}
+    <main id="main-content" className="py-16 sm:py-24 space-y-16">
+      {/* Article Header */}
       <section>
         <Container width="standard">
-          <div className="space-y-6">
+          <div className="space-y-8">
             <Link
               to="/portfolio"
               className="inline-flex items-center gap-2 text-xs font-mono text-[#D8CFC2]/70 hover:text-white transition-colors"
@@ -50,36 +47,39 @@ export const CaseStudyPage: React.FC = () => {
               <span>Back to all projects</span>
             </Link>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Badge variant="crimson" size="sm">
-                {project.category}
-              </Badge>
-              <Badge variant="mono" size="sm">
-                Role: {project.role}
-              </Badge>
-              <Badge variant="outline" size="sm">
-                {project.status}
-              </Badge>
+            <div className="space-y-3">
+              <h1 className="font-display text-4xl sm:text-6xl text-white font-normal">
+                {project.title}
+              </h1>
+              <p className="font-body text-lg text-[#FDA2AC] font-light">
+                {project.subtitle}
+              </p>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-6xl text-white">
-              {project.title}
-            </h1>
-            <p className="font-mono text-sm sm:text-base text-[#FDA2AC]">
-              {project.subtitle}
-            </p>
+            {/* Publication Metadata Row */}
+            <div className="py-4 border-y border-[#D8CFC2]/15 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#857A6E]">
+              <div>
+                Category: <span className="text-[#D8CFC2]">{project.category}</span>
+              </div>
+              <div>
+                Role: <span className="text-[#D8CFC2]">{project.role}</span>
+              </div>
+              <div>
+                Status: <span className="text-[#E7C75A]">{project.status}</span>
+              </div>
+            </div>
 
-            {/* Links Bar */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Direct Links */}
+            <div className="flex flex-wrap items-center gap-6 font-mono text-xs">
               {project.links.live && (
                 <a
                   href={project.links.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#EB0E31] text-white text-xs font-mono rounded hover:bg-[#FF2B4D] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[#EB0E31] hover:text-[#FF2B4D] transition-colors"
                 >
-                  <span>Open Live Application</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Open live deployment</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               )}
               {project.links.repo && project.links.repo !== 'TBD' && (
@@ -87,10 +87,10 @@ export const CaseStudyPage: React.FC = () => {
                   href={project.links.repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 border border-[#D8CFC2]/20 text-[#D8CFC2] hover:text-white hover:border-[#D8CFC2] text-xs font-mono rounded transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[#D8CFC2] hover:text-white transition-colors"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
-                  <span>View Repository</span>
+                  <span>View repository</span>
                 </a>
               )}
             </div>
@@ -98,68 +98,58 @@ export const CaseStudyPage: React.FC = () => {
         </Container>
       </section>
 
-      {/* Narrative & Structural Details */}
+      {/* Article Content */}
       <section>
         <Container width="standard">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Main proof */}
-            <div className="lg:col-span-2 space-y-10">
-              {/* Problem statement */}
-              <div className="space-y-3">
-                <h2 className="font-mono text-xs uppercase tracking-widest text-[#EB0E31]">
-                  Problem & Architectural Context
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Primary Column */}
+            <div className="lg:col-span-8 space-y-12">
+              <div className="space-y-4">
+                <h2 className="font-display text-2xl sm:text-3xl text-white">
+                  Problem context
                 </h2>
-                <p className="text-base text-[#D8CFC2]/90 leading-relaxed font-light">
+                <p className="text-base text-[#D8CFC2]/90 leading-relaxed font-light prose-measure">
                   {project.problem}
                 </p>
               </div>
 
-              {/* Verified Contributions */}
               <div className="space-y-4">
-                <h2 className="font-mono text-xs uppercase tracking-widest text-[#EB0E31]">
-                  Verified Implementation & Decisions
+                <h2 className="font-display text-2xl sm:text-3xl text-white">
+                  Technical decisions and contributions
                 </h2>
-                <ul className="space-y-3">
+                <ul className="space-y-3 text-sm text-[#D8CFC2]/90 font-light prose-measure">
                   {project.contributions.map((c, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-[#D8CFC2]/90 font-light">
-                      <CheckCircle2 className="w-4 h-4 text-[#FDA2AC] shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-[#EB0E31] font-mono text-xs mt-0.5">—</span>
                       <span>{c}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Curator & Verification Notes */}
               {(project.metricsNote || project.curatorNote) && (
-                <div className="p-4 rounded bg-[#1E131A] border border-[#D8CFC2]/15 text-xs font-mono text-[#B3A89A] flex items-start gap-3">
-                  <AlertCircle className="w-4 h-4 text-[#E7C75A] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-[#E7C75A] font-semibold">Verification Guarantee: </span>
-                    <span>{project.metricsNote || project.curatorNote}</span>
-                  </div>
+                <div className="border-l-2 border-[#E7C75A] pl-4 py-1 space-y-1 text-xs font-mono text-[#D8CFC2]/80">
+                  <div className="text-[#E7C75A] font-semibold">Verification note</div>
+                  <p className="font-light">{project.metricsNote || project.curatorNote}</p>
                 </div>
               )}
             </div>
 
-            {/* Sidebar metadata */}
-            <div className="space-y-6">
-              <Card variant="surface" className="space-y-4">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#FDA2AC]">
-                  Technical Stack
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((t) => (
-                    <Badge key={t} variant="mono" size="sm">
-                      {t}
-                    </Badge>
-                  ))}
+            {/* Sidebar Column */}
+            <div className="lg:col-span-4 border-t lg:border-t-0 lg:border-l border-[#D8CFC2]/15 pt-8 lg:pt-0 lg:pl-8 space-y-6 text-xs font-mono">
+              <div className="space-y-2">
+                <div className="text-[#857A6E]">Technologies</div>
+                <div className="text-[#D8CFC2] space-y-1 font-sans">
+                  {project.technologies.join(', ')}
                 </div>
+              </div>
 
-                <div className="pt-4 border-t border-[#D8CFC2]/10 space-y-2 text-xs font-mono text-[#857A6E]">
-                  <div>Status: <span className="text-[#D8CFC2]">{project.status}</span></div>
-                  <div>Role: <span className="text-[#D8CFC2]">{project.role}</span></div>
-                </div>
-              </Card>
+              <div className="space-y-2">
+                <div className="text-[#857A6E]">Summary</div>
+                <p className="font-sans text-[#D8CFC2]/80 leading-relaxed font-light">
+                  {project.summary}
+                </p>
+              </div>
             </div>
           </div>
         </Container>

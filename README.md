@@ -4,16 +4,17 @@
 
 ---
 
-## 📌 Non-Negotiable Design Rules
+## 📌 Non-Negotiable Design Rules & Enforcement
 
-- **No random W-logo decorations:** Use brand marks with purpose; avoid arbitrary logo scattering.
-- **Authentic Identity:** Use the user's supplied real portrait (`Wafiq.jpeg`) as the portrait source. Do not invent or alter identity.
-- **Editorial Direction:** Japanese contemporary editorial + experimental art-book direction. Avoid superficial clichés or decorative Japanese glyphs.
-- **Purposeful Motion:** Every visual element and animation must have a purpose. Respect `prefers-reduced-motion` and provide non-WebGL fallbacks.
-- **Distinct Experiences:** The CRT gateway (`/`), editorial portfolio (`/portfolio`), puzzle experience (`/puzzle`), and print résumé (`/resume`) are separate experiences.
-- **Zero Gatekeeping:** The résumé and portfolio must be directly accessible without requiring completion of the CRT gateway or puzzle.
-- **Lean Dependencies:** Do not install every listed library. Select only what the implementation actually requires.
-- **Licence Compliance:** Verify per-asset licence and attribution requirements before importing any third-party asset.
+RED THREAD must look **designed, not generated**. All development is governed by the permanent canon in [`AGENTS.md`](AGENTS.md) and [`docs/DESIGN.md`](docs/DESIGN.md):
+
+- **No Generic UI Decoration:** No eyebrow text above headings, no uppercase labels above titles, no fake live counters, no fake telemetry/coordinates, no fake command prompts, no generic pill badges, no repetitive section numbering.
+- **No Generic SaaS Aesthetics:** No repetitive card grids, no unnecessary rounded containers, no glassmorphism, no glowing borders, no neon text shadows, and no random gradient blobs.
+- **Authentic Identity & Portrait:** Use the owner's supplied real portrait ([`public/images/Wafiq.jpeg`](public/images/Wafiq.jpeg)). Never generate a replacement face or distort identity.
+- **Restrained Brand Mark:** No random reuse of the "W" logo as decorative watermarks or background fillers.
+- **Japanese Contemporary Editorial Direction:** Asymmetrical editorial grids, active negative space (*Ma* 間), and expressive Bringhurst typography. Zero cultural clichés or artificial paper textures.
+- **Direct Copywriting & Zero Invention:** Natural, specific language without startup buzzwords. No invented metrics, claims, or testimonials.
+- **Decoupled Experiences & Zero Gatekeeping:** The CRT gateway (`/`), editorial portfolio (`/portfolio`), puzzle (`/puzzle`), and clean résumé (`/resume`) remain distinct. The résumé and portfolio are directly accessible at all times without completing gateway animations or puzzles.
 
 ---
 

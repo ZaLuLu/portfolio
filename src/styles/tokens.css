@@ -50,10 +50,9 @@
   --measure-optimal: 65ch;
   --measure-max: 75ch;
 
-  /* CRT Gateway Specific Tokens */
-  --crt-phosphor: #FDA2AC;
-  --crt-glow: rgba(235, 14, 49, 0.25);
-  --crt-amber: #E7C75A;
+  /* Gateway Tone Tokens */
+  --gateway-accent: var(--primitive-coral);
+  --gateway-highlight: var(--primitive-yellow);
 }
 
 /* Light / Print context overrides */
