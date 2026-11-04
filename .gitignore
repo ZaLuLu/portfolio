@@ -27,6 +27,9 @@ pnpm-debug.log*
 # System & IDE files
 .DS_Store
 Thumbs.db
+*.zip
+!archive/*.zip
+!brand/archive/*.zip
 .idea/
 .vscode/*
 !.vscode/extensions.json
