@@ -1,23 +1,27 @@
-# RED THREAD — Permanent Agent Instructions & Design System Canon
+# RED THREAD — Permanent Agent Instructions & Creative Canon
 
 > **Status:** Permanent & Mandatory  
-> **Applies To:** Every page, component, feature, interaction, responsive layout, and future agent session.
+> **Creative Direction:** Abstract Spatial Environments + Kinetic Graphics + Controlled Cinematic Depth  
+> **Architecture Ratio:** ~70% 2D content and ~30% 3D experience  
+> **Applies To:** Every page, scene, component, 3D environment, interaction, and future coding session.
 
 ---
 
 ## 1. Prime Directive
 
-RED THREAD is a digital publication and personal systems showcase, **not a generic developer portfolio, SaaS landing page, or component-library demo**.
+RED THREAD is an interactive digital environment and personal systems showcase, **not a generic developer portfolio, SaaS landing page, or component-library demo**.
 
 **RED THREAD must look designed, not generated.**
 - Restraint is a design decision. Intentionality is mandatory.
-- If an element does not communicate meaningful information, support an interaction, or contribute deliberately to the composition, **remove it**.
+- The environment attracts attention; the work earns it.
+- Never build everything in one pass; development must follow the phased roadmap.
+- If an element does not communicate meaningful information, support an interaction, or contribute deliberately to the scene, **remove it**.
 
 ---
 
 ## 2. Strictly Prohibited Design Patterns
 
-The following patterns are **permanently banned** across all code, components, and layouts:
+The following patterns are **permanently banned** across all code, 3D scenes, components, and layouts:
 
 ### No Generic UI Decoration
 - ❌ **No eyebrow text** above headings (e.g. `[ PORTFOLIO · 2026 ]`, `SYSTEM RECORD`, `01 // SUMMARY`).
@@ -29,6 +33,7 @@ The following patterns are **permanently banned** across all code, components, a
 - ❌ **No repetitive section numbering** (`01`, `02`, `03` sprinkled on every card).
 - ❌ **No arbitrary decorative icons** placed beside text without functional meaning.
 - ❌ **No decorative progress bars**, fake loading states, or artificial notifications.
+- ❌ **No generic hacker tropes:** No padlocks, binary rain, hooded figures, matrix code walls, or neon server racks.
 
 ### No Generic SaaS Aesthetics
 - ❌ **No repetitive card-based layouts** (e.g. endless 3-column cards with icons and descriptions).
@@ -39,43 +44,45 @@ The following patterns are **permanently banned** across all code, components, a
 
 ---
 
-## 3. Visual Direction & Composition
+## 3. Visual Direction & Spatial Environments
 
-**Aesthetic Definition:** Japanese contemporary editorial design fused with experimental art-book composition.
+**Aesthetic Definition:** Abstract spatial environments + kinetic graphics + controlled cinematic depth.
 
-- **Asymmetrical Editorial Grids:** Compose sections thoughtfully. Break symmetrical card monotony.
-- **Active Negative Space (*Ma* 間):** Give ideas room to breathe. Do not fill empty space simply because it exists.
-- **Intentional Imagery:** Use the owner's authentic portrait ([`public/images/Wafiq.jpeg`](public/images/Wafiq.jpeg)). Never generate a replacement face, distort identity, or apply aggressive glitch effects.
+- **Environmental Design:** Construct original abstract environments from geometry, suspended planes, distorted architectural forms, and controlled depth.
+- **The Connection Form:** The red thread appears as a recurring, transformative visual mechanism (geometric form, path, scene transition, line) connecting scenes. It is never a permanently animated decorative line.
+- **Visual Density Balance:** Alternate between immersive environmental scenes, open typography, dense graphic moments, and clear project presentations.
+- **Authentic Imagery:** Use the owner's authentic portrait ([`public/images/Wafiq.jpeg`](public/images/Wafiq.jpeg)). Never generate a replacement face, distort identity, or apply aggressive glitch shaders.
 - **Restrained Brand Mark:** Do not scatter the "W" logo as watermarks, backgrounds, or decorative section dividers.
-- **Zero Cultural Clichés:** No cherry blossoms, random Japanese glyphs, stamps, anime references, or fake paper textures everywhere.
+- **Zero Cultural Clichés:** No cherry blossoms, random Japanese glyphs, stamps, or artificial paper textures everywhere.
 
 ---
 
-## 4. Brand Palette
+## 4. Working Colour Palette
 
-Strict adherence to the official 5-colour palette is required:
+Adhere to the evolved 6-colour system:
 
 | Colour | Hex | Intended Role |
 | :--- | :--- | :--- |
-| **Crimson** | `#EB0E31` | Primary signature accent |
-| **Plum** | `#33212C` | Dark editorial foundation |
-| **Sand** | `#D8CFC2` | Warm neutral reading foundation |
-| **Coral** | `#FDA2AC` | Supporting expressive colour |
-| **Canary Yellow** | `#E7C75A` | Restrained highlight (sparingly) |
+| **Obsidian** | `#171719` | Dark environmental foundation |
+| **Signal Red** | `#EB0E31` | Primary identity colour & visual signature |
+| **Chalk** | `#E6E2DA` | Light content surfaces & readable foreground |
+| **Electric Blue** | `#3155E7` | Secondary visual accent (used selectively) |
+| **Concrete** | `#C4C0B7` | Structural surfaces & architectural planes |
+| **Acid Yellow** | `#D8C34D` | Occasional visual interruption (used sparingly) |
 
-- Never let pure white `#FFFFFF` dominate the screen (except inside dedicated `@media print` stylesheets).
-- Maintain WCAG contrast across all pairings.
+- Different scenes may use different combinations; avoid applying all six colours to every section.
+- Maintain accessible WCAG AA contrast across all pairings. Never communicate information through colour alone.
 
 ---
 
 ## 5. Typography Standards
 
 - **Independence:** Main headings must stand independently without supporting eyebrows or micro-labels.
-- **Sentence Case:** Sentence case is the universal default. Uppercase is restricted to short technical abbreviations.
+- **Sentence Case:** Sentence case is the universal default.
 - **Type Families:**
-  - Display: `Instrument Serif` (expressive, literary, elegant).
-  - Body: `Inter` (neutral, legible, restrained).
-  - Technical: `IBM Plex Mono` (strictly for code, files, coordinates, or data schemas).
+  - **Primary Display:** `Space Grotesk` (contemporary, expressive, confident).
+  - **Body:** `Inter` (neutral, legible, restrained).
+  - **Technical:** `IBM Plex Mono` (strictly for actual code, file paths, coordinates, or data schemas).
 - **Line Lengths:** Robert Bringhurst optimal measure of $45\text{--}75\text{ch}$.
 
 ---
@@ -87,12 +94,13 @@ Strict adherence to the official 5-colour palette is required:
 
 ---
 
-## 7. Component Library Restrictions
+## 7. 2D / 3D Implementation Rules
 
-When utilizing components from libraries (ReactBits, shadcn/ui, OriginKit, etc.):
-1. Never adopt default library styling without stripping generic badges, colored pill borders, and SaaS cards.
-2. Adapt every component directly to the RED THREAD token system.
-3. Every component must support the 8 mandatory interactive states: Default, Hover, Active/Pressed, Focus-Visible, Loading, Disabled, Error, and Success.
+- **70/30 Rule:** Approximately 70% 2D content (DOM, semantic HTML, typography, case studies) and 30% 3D experience (R3F environmental canvas).
+- **Single Canvas Instance:** Use a single shared WebGL canvas architecture; avoid mounting multiple canvases.
+- **Content Stays Outside Canvas:** Project details, descriptions, and accessible copy remain in DOM elements.
+- **Zero 3D on Résumé:** The `/resume` route must never load Three.js, R3F, or shader libraries.
+- **Reduced Motion & Fallbacks:** Always provide a complete, functional non-WebGL and reduced-motion fallback.
 
 ---
 
@@ -103,8 +111,9 @@ Before completing any task or commit, verify:
 - [ ] No fake telemetry, system status, or terminal prompts.
 - [ ] No generic pill badges or colored status chips.
 - [ ] No repetitive card grids.
-- [ ] Real portrait (`Wafiq.jpeg`) used with deliberate editorial framing.
+- [ ] Real portrait (`Wafiq.jpeg`) used with deliberate framing.
 - [ ] No invented metrics or claims.
-- [ ] Accessible print résumé accessible directly at `/resume`.
+- [ ] Accessible print résumé accessible directly at `/resume` without WebGL.
 - [ ] Keyboard navigation, visible focus rings, and reduced-motion modes fully functional.
 - [ ] Production build (`npm run build`) compiles cleanly with zero errors.
+- [ ] Work is stopped after the assigned phase for user review and approval.

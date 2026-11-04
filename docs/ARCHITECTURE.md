@@ -1,130 +1,150 @@
-# RED THREAD — Technical Architecture
+# RED THREAD — Technical Architecture & Application Blueprint
 
-**Status:** React direction approved. Exact dependency versions must be resolved and tested by the implementation agent before installation.
+> **Stack:** React 19 + Vite + TypeScript + Tailwind CSS v4  
+> **3D Engine:** React Three Fiber v9 + Three.js + Drei  
+> **Motion:** Motion + GSAP (complex timelines)  
+> **Deployment Target:** Vercel (SPA with zero-404 rewrites)  
+> **Composition Ratio:** ~70% 2D content and ~30% 3D environmental experience  
 
-## 1. Foundation
+---
 
-- React 19
-- Vite
-- TypeScript
-- React Router
-- Tailwind CSS (current compatible release)
-- Vercel deployment
+## 1. Architectural Strategy: 70/30 Hybrid
 
-This is a client-focused portfolio with static content and selective interaction. Do not introduce a database or backend without a concrete feature requirement.
+RED THREAD combines an abstract 3D environment with high-contrast, accessible 2D typography and interface elements:
 
-## 2. Route architecture
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                    DOM & UI LAYER (70%)                     │
+│  - Semantic HTML & Accessible Navigation                    │
+│  - Space Grotesk / Inter Typography (outside canvas)        │
+│  - Case Study Content, Documentation, & Print Résumé        │
+│  - Native Browser Scroll & Kinetic 2D Transitions           │
+├─────────────────────────────────────────────────────────────┤
+│               3D ENVIRONMENTAL CANVAS (30%)                 │
+│  - Single Shared R3F Canvas (Lazy-loaded)                   │
+│  - Abstract Geometric Sculptures & Perspective Shifts       │
+│  - The Connection Form (The Red Thread recurring mechanism) │
+│  - Camera Choreography Driven by Scroll Progression         │
+└─────────────────────────────────────────────────────────────┘
+```
 
-| Route | Experience |
-|---|---|
-| `/` | CRT gateway |
-| `/portfolio` | Editorial portfolio |
-| `/portfolio/work/:slug` | Project case study |
-| `/puzzle` | Separate puzzle experience |
-| `/resume` | Print-friendly résumé |
+### Invariants:
+1. **Single Canvas Instance:** Avoid mounting multiple independent WebGL canvases across scenes.
+2. **Zero 3D on Résumé:** The `/resume` route must not load Three.js, R3F, or shader libraries.
+3. **Content Stays in DOM:** All copy, project descriptions, and credentials remain in accessible semantic DOM elements, never trapped in WebGL meshes or textures.
+4. **Fallback & Reduced Motion:** When WebGL fails or `prefers-reduced-motion` is active, the 2D layout remains 100% complete, legible, and interactive.
 
-Add route-level lazy loading. The puzzle and 3D-heavy modules must not be loaded by the gateway or résumé route.
+---
 
-## 3. Suggested structure
+## 2. Route Architecture
+
+| Route | View Experience | Technology & Rendering |
+| :--- | :--- | :--- |
+| `/` | **RED THREAD Gateway** | Fast threshold with skip-intro; 3 direct destinations |
+| `/portfolio` | **Professional Portfolio** | 5-Scene environmental scroll (~70% 2D / 30% R3F) |
+| `/portfolio/work/:slug` | **Project Case Study** | Dedicated 2D editorial composition with media & proof |
+| `/puzzle` | **Interactive Puzzle** | Decoupled cinematic narrative experience |
+| `/resume` | **Plain Printable Résumé** | Pure semantic HTML + print CSS; zero 3D overhead |
+
+---
+
+## 3. Five Homepage Scenes
+
+The `/portfolio` route is composed of five continuous scenes linked by **The Connection Form**:
+
+1. **Scene 01: Arrival:** Dark abstract environment (Obsidian), dominant geometric structure, Signal Red signature.
+2. **Scene 02: Introduction:** Transition to graphic composition, authentic portrait (`Wafiq.jpeg`) with deliberate framing, personal focus.
+3. **Scene 03: Selected Work:** Sequential project environments (RetailMind flagship, ML implementations, Cybersecurity notes, Hajime initiative).
+4. **Scene 04: Process & Capabilities:** Technical problem-solving, engineering workflow, and diagrams without generic percentage bars.
+5. **Scene 05: Contact & Conclusion:** Environmental resolution, clear direct communication channels (Email, GitHub, LinkedIn).
+
+---
+
+## 4. Application Folder Layout
 
 ```text
 red-thread/
 ├── public/
-│   ├── fonts/
+│   ├── favicon.ico
+│   ├── favicons/
 │   ├── images/
+│   │   ├── Wafiq.jpeg
+│   │   └── logo/
 │   ├── models/
 │   └── textures/
+│
 ├── src/
 │   ├── app/
-│   │   ├── router/
-│   │   └── providers/
+│   │   ├── App.tsx
+│   │   └── router/index.tsx
+│   │
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navigation.tsx
+│   │   │   └── Footer.tsx
+│   │   ├── ui/
+│   │   │   ├── Button.tsx
+│   │   │   ├── Card.tsx
+│   │   │   ├── Container.tsx
+│   │   │   └── Icons.tsx
+│   │   └── transitions/
+│   │
+│   ├── scenes/
+│   │   ├── 01-arrival/
+│   │   ├── 02-introduction/
+│   │   ├── 03-work/
+│   │   ├── 04-process/
+│   │   └── 05-conclusion/
+│   │
+│   ├── three/
+│   │   ├── canvas/
+│   │   ├── environments/
+│   │   ├── geometry/
+│   │   └── materials/
+│   │
+│   ├── content/
+│   │   ├── profile.ts
+│   │   └── projects.ts
+│   │
 │   ├── experiences/
 │   │   ├── gateway/
 │   │   ├── editorial/
 │   │   ├── puzzle/
 │   │   └── resume/
-│   ├── components/
-│   │   ├── ui/
-│   │   ├── gallery/
-│   │   ├── motion/
-│   │   └── three/
-│   ├── content/
-│   │   └── projects/
+│   │
 │   ├── hooks/
 │   ├── lib/
-│   ├── styles/
-│   │   ├── tokens.css
-│   │   ├── typography.css
-│   │   ├── global.css
-│   │   └── print.css
-│   └── main.tsx
-├── asset-vault/
+│   └── styles/
+│       ├── tokens.css
+│       ├── typography.css
+│       ├── print.css
+│       └── global.css
+│
 ├── docs/
-└── package.json
+│   ├── DESIGN.md
+│   ├── ARCHITECTURE.md
+│   ├── TYPOGRAPHY.md
+│   ├── DEPENDENCIES.md
+│   └── QUESTIONS_answered.md
+│
+├── AGENTS.md
+├── README.md
+├── package.json
+├── tsconfig.json
+├── vercel.json
+└── vite.config.ts
 ```
-
-## 4. Rendering and performance
-
-- Lazy-load route bundles and all 3D scenes.
-- Keep the gateway and résumé lightweight.
-- Use native CSS scroll snapping before adding a smooth-scroll library.
-- Prefer Motion for ordinary React animation; use GSAP only for complex timelines.
-- Use R3F v9 with React 19 for the stable baseline. Do not copy v10 alpha/WebGPU example dependencies into the production app.
-- Pause or reduce 3D rendering when off-screen where practical.
-- Provide non-WebGL fallbacks.
-- Respect reduced motion.
-- Optimise images, fonts, GLB and texture sizes.
-- Avoid multiple always-running canvases.
-- Test on mobile, integrated GPUs and lower-powered devices.
-
-## 5. Content model
-
-Each project record should support:
-`slug`, `title`, `summary`, `problem`, `audience`, `role`, `contributions`, `constraints`, `decisions`, `outcome`, `status`, `technologies`, `links`, `media`, `credits`, `publish`.
-
-Do not publish unapproved claims, confidential work or unsupported metrics.
-
-## 6. SEO and accessibility
-
-A Vite SPA requires deliberate SEO handling:
-- Route-specific document titles and descriptions.
-- Open Graph and social preview metadata.
-- Sitemap and robots configuration.
-- Semantic HTML and keyboard navigation.
-- Focus-visible states.
-- Reduced-motion support.
-- Meaningful image alt text.
-- Static fallback content if animation or WebGL fails.
-
-If search indexing becomes a primary requirement, evaluate prerendering or a React framework before launch rather than assuming client rendering is sufficient.
-
-## 7. Dependency ownership
-
-- Use one icon family: Lucide React.
-- Use shadcn/ui as source-owned accessible primitives.
-- Use ReactBits selectively; copy only chosen components.
-- OriginKit components are subject to OriginKit's component licence and terms.
-- Keep R3F/Drei versions aligned with React 19.
-- Keep `react-three-examples` v10/WebGPU as a reference gallery only for this stable baseline.
-- Do not install every tool listed in the asset vault.
-
-## 8. Acceptance gates
-
-1. Dependency versions resolve without peer-dependency overrides.
-2. Production build succeeds.
-3. Gateway and résumé do not load Three.js.
-4. Reduced-motion and no-WebGL fallbacks work.
-5. Routes work on direct refresh in Vercel.
-6. Print résumé has correct page breaks.
-7. Asset credits and licences are recorded.
-
 
 ---
 
-## 9. Shared Component Design System Enforcement
+## 5. Performance Targets & Budgets
 
-All shared components (`src/components/ui/`, `src/components/layout/`, and experience views) must strictly comply with the RED THREAD Permanent Design System Rules:
-- **No Library Default Aesthetics:** Never import an external component and use its default styles without stripping generic badges, pill shapes, glassmorphism, or colored card borders.
-- **Design Token Integration:** All typography, colors, and spatial geometry must map directly to the semantic design tokens in `src/styles/tokens.css`.
-- **Composition Over Repetition:** Avoid turning every piece of information into a card. Use typography, asymmetrical editorial grids, and active negative space (*Ma* 間).
-- **Mandatory 8 States:** Every interactive component must handle Default, Hover, Active, Focus-Visible, Loading, Disabled, Error, and Success states.
+| Metric | Target |
+| :--- | :--- |
+| **Lighthouse Performance** | $90+$ |
+| **Lighthouse Accessibility** | $95+$ |
+| **Lighthouse Best Practices** | $95+$ |
+| **Lighthouse SEO** | $95+$ |
+| **Largest Contentful Paint (LCP)** | $< 2.5\text{s}$ |
+| **Cumulative Layout Shift (CLS)** | $< 0.1$ |
+| **Interaction to Next Paint (INP)** | $< 200\text{ms}$ |

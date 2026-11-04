@@ -1,6 +1,6 @@
-# RED THREAD — Portfolio & Brand Experience
+# RED THREAD — Interactive Portfolio & Spatial Environment
 
-> Personal portfolio project and digital brand experience for **Wafiq**, updated to the **RED THREAD** direction: **React 19 + Vite + TypeScript**, Japanese contemporary editorial + experimental art-book aesthetic, CRT gateway, and curated asset vault.
+> Personal portfolio experience and systems showcase for **Wafiq Nawaz C.**, built as an **interactive abstract digital environment**: **React 19 + Vite + TypeScript**, **React Three Fiber v9**, kinetic graphics, Space Grotesk typography, and controlled cinematic depth.
 
 ---
 
@@ -12,21 +12,34 @@ RED THREAD must look **designed, not generated**. All development is governed by
 - **No Generic SaaS Aesthetics:** No repetitive card grids, no unnecessary rounded containers, no glassmorphism, no glowing borders, no neon text shadows, and no random gradient blobs.
 - **Authentic Identity & Portrait:** Use the owner's supplied real portrait ([`public/images/Wafiq.jpeg`](public/images/Wafiq.jpeg)). Never generate a replacement face or distort identity.
 - **Restrained Brand Mark:** No random reuse of the "W" logo as decorative watermarks or background fillers.
-- **Japanese Contemporary Editorial Direction:** Asymmetrical editorial grids, active negative space (*Ma* 間), and expressive Bringhurst typography. Zero cultural clichés or artificial paper textures.
+- **Abstract Environmental Direction:** Geometric sculptures, suspended planes, architectural forms, and controlled depth. Zero literal hacker cliches (no padlocks, matrix rain, or hooded figures).
 - **Direct Copywriting & Zero Invention:** Natural, specific language without startup buzzwords. No invented metrics, claims, or testimonials.
-- **Decoupled Experiences & Zero Gatekeeping:** The CRT gateway (`/`), editorial portfolio (`/portfolio`), puzzle (`/puzzle`), and clean résumé (`/resume`) remain distinct. The résumé and portfolio are directly accessible at all times without completing gateway animations or puzzles.
+- **Decoupled Experiences & Zero Gatekeeping:** The gateway (`/`), portfolio (`/portfolio`), puzzle (`/puzzle`), and clean résumé (`/resume`) remain distinct. The résumé and portfolio are directly accessible at all times without completing gateway animations or puzzles.
 
 ---
 
-## 🗺️ Experience Map
+## 🎨 Working Colour Palette
 
-| Route | Experience | Purpose |
+| Colour | Hex | Intended Role |
 | :--- | :--- | :--- |
-| `/` | **CRT Gateway** | Retro threshold with 3 accessible destinations (Portfolio, Puzzle, Résumé) |
-| `/portfolio` | **Editorial Portfolio** | Professional identity, project catalog, capabilities, and bio |
-| `/portfolio/work/:slug` | **Case Study** | In-depth project proof, constraints, architectural decisions, and outcomes |
-| `/puzzle` | **Puzzle Portfolio** | Standalone cinematic interactive narrative (isolated phase) |
-| `/resume` | **Plain Résumé** | Accessible, clean, print-ready document with proper page breaks |
+| **Obsidian** | `#171719` | Dark environmental foundation |
+| **Signal Red** | `#EB0E31` | Primary identity colour & visual signature |
+| **Chalk** | `#E6E2DA` | Light content surfaces & readable foreground |
+| **Electric Blue** | `#3155E7` | Secondary visual accent (used selectively) |
+| **Concrete** | `#C4C0B7` | Structural surfaces & architectural planes |
+| **Acid Yellow** | `#D8C34D` | Occasional visual interruption (used sparingly) |
+
+---
+
+## 🗺️ Experience Map & Route Architecture
+
+| Route | Experience | Technology & Rendering |
+| :--- | :--- | :--- |
+| `/` | **RED THREAD Gateway** | Fast environmental threshold with 3 accessible destinations |
+| `/portfolio` | **Professional Portfolio** | 5-Scene environmental scroll (~70% 2D / 30% R3F) |
+| `/portfolio/work/:slug` | **Case Study** | Project-specific proof, constraints, architectural decisions, and outcomes |
+| `/puzzle` | **Interactive Puzzle** | Decoupled cinematic narrative experience (independent phase) |
+| `/resume` | **Plain Résumé** | Accessible, clean, print-ready document with proper page breaks (zero 3D) |
 
 ---
 
@@ -35,65 +48,37 @@ RED THREAD must look **designed, not generated**. All development is governed by
 ```text
 portfolio/
 ├── archive/                     # Preserved archive bundles (.zip)
-│   └── RED_THREAD_Agent_Handoff_Pack.zip
 ├── asset-vault/                 # Curated third-party library & 3D asset vault
-│   ├── manifests/sources.json   # Verified registry of components, shaders, & 3D assets
-│   ├── ASSET_VAULT.md           # Selection rules & candidate effects
-│   ├── IMPORT_QUEUE.md          # Phased adoption protocol for implementation
-│   └── LICENSING.md             # Compliance checklist & per-asset tracking
-│
 ├── brand/                       # Visual brand system & source assets
-│   ├── 01_Brand_Guidelines/    # Palette specs, guidelines, psychology guide
-│   ├── 02_Logo_Assets/         # Scalable SVG & PNG logo marks
-│   ├── 03_Favicons/            # Favicon & icon suites (16px to 512px, .ico)
-│   ├── 04_Reference/           # Source references & original brand boards
-│   ├── archive/                # Original brand bundle (.zip)
-│   └── README.md               # Brand asset notes
-│
 ├── docs/                        # Specifications & architectural blueprints
-│   ├── ARCHITECTURE.md         # React 19 + Vite + TypeScript architecture
+│   ├── ARCHITECTURE.md         # React 19 + R3F v9 hybrid architecture
 │   ├── DEPENDENCIES.md         # Selection & compatibility policy
-│   ├── DESIGN.md               # Experience map, CRT gateway & editorial spec
-│   ├── TYPOGRAPHY.md           # Type roles, hierarchy tokens & pairing candidates
-│   ├── BRAND_PRESETS.md        # Semantic design tokens & color roles
-│   └── QUESTIONS.md            # Content intake questionnaire
-│
-├── public/                      # Web-ready static assets
-│   ├── favicon.ico             # Root browser icon
-│   ├── favicons/               # Multi-resolution application icons
-│   └── images/logo/            # Scalable SVG brand logos
-│
-├── src-blueprint/               # Initial application structure guidelines
-│   └── README.md               # Vite scaffolding instructions
-│
-├── .gitignore                   # Ignore rules (node_modules, build outputs, OS files)
-├── PACK_MANIFEST.json           # RED THREAD handoff manifest
-└── README.md                    # Project overview & roadmap
+│   ├── DESIGN.md               # Creative direction & implementation blueprint
+│   ├── TYPOGRAPHY.md           # Space Grotesk / Inter / IBM Plex Mono spec
+│   └── QUESTIONS_answered.md   # Confirmed intake questionnaire & project inventory
+├── public/                      # Web-ready static assets (portrait, favicons, logos)
+├── src/                         # Application source code
+│   ├── app/                    # Routing & App entry
+│   ├── components/             # Layout and reusable UI primitives
+│   ├── content/                # Profile & verified project records
+│   ├── experiences/            # Gateway, Editorial, Case Study, Puzzle, Résumé
+│   └── styles/                 # DTCG tokens, typography, print, global styles
+├── AGENTS.md                    # Permanent agent instructions & creative canon
+├── README.md                    # Project overview & roadmap
+├── vercel.json                  # Vercel SPA deployment configuration
+└── vite.config.ts               # Vite configuration with Tailwind CSS v4
 ```
 
 ---
 
-## 🎨 Official Five-Colour Palette
+## 🚀 Phased Implementation Roadmap
 
-| Colour | HEX | RGB | Semantic Token Role |
-| :--- | :--- | :--- | :--- |
-| **Crimson** | `#EB0E31` | `235, 14, 49` | Primary signature & high-intent call-to-actions |
-| **Plum** | `#33212C` | `51, 33, 44` | Dark editorial foundation & deep surfaces |
-| **Sand** | `#D8CFC2` | `216, 207, 194` | Warm neutral surface & readable body contrast |
-| **Coral** | `#FDA2AC` | `253, 162, 172` | Expressive companion & secondary accents |
-| **Canary Yellow** | `#E7C75A` | `231, 199, 90` | High-visibility highlight (tags, micro-markers) |
-
-*Full specifications are documented in [`brand/01_Brand_Guidelines/Brand_Guidelines.md`](brand/01_Brand_Guidelines/Brand_Guidelines.md).*
-
----
-
-## 📖 Recommended Read Order
-
-1. [`docs/DESIGN.md`](docs/DESIGN.md) — Experience map, CRT gateway, editorial direction, puzzle, and résumé.
-2. [`docs/TYPOGRAPHY.md`](docs/TYPOGRAPHY.md) — Type roles, fluid hierarchy tokens, and pairing candidates.
-3. [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — React 19 + Vite + TypeScript stack, routes, content model, and acceptance gates.
-4. [`docs/DEPENDENCIES.md`](docs/DEPENDENCIES.md) — Dependency selection, version alignment, and installation order.
-5. [`asset-vault/ASSET_VAULT.md`](asset-vault/ASSET_VAULT.md) — Curated components, 3D assets, icons, and prototype effects.
-6. [`asset-vault/LICENSING.md`](asset-vault/LICENSING.md) — Asset licensing register and tracking requirements.
-7. [`asset-vault/manifests/sources.json`](asset-vault/manifests/sources.json) — Structured registry of sources and packages.
-8. [`src-blueprint/README.md`](src-blueprint/README.md) — Scaffolding instructions for Vite SPA.
+- [x] **Phase 0:** Repository and specification reconciliation (Documentation, AGENTS.md, dependency audit, implementation plan).
+- [ ] **Phase 1:** Visual prototype (1 abstract 3D environment, 1 kinetic typography composition, 1 2D-to-3D transition, 1 scroll-driven camera transition, 1 reduced-motion alternative).
+- [ ] **Phase 2:** Design system and application foundation.
+- [ ] **Phase 3:** Gateway and arrival scene.
+- [ ] **Phase 4:** Professional portfolio (5 scenes: Arrival, Introduction, Work, Process, Conclusion).
+- [ ] **Phase 5:** Case studies.
+- [ ] **Phase 6:** Puzzle experience.
+- [ ] **Phase 7:** Résumé.
+- [ ] **Phase 8:** Final optimisation and release.

@@ -1,19 +1,28 @@
 :root {
   /* ==========================================================================
-     Tier 1: Global Brand Primitives (RED THREAD / Wafiq Brand Kit)
+     Tier 1: Global Brand Primitives & Working Environmental Palette
      ========================================================================== */
+  /* Evolved Working Palette */
+  --primitive-obsidian: #171719;
+  --primitive-signal-red: #EB0E31;
+  --primitive-chalk: #E6E2DA;
+  --primitive-electric-blue: #3155E7;
+  --primitive-concrete: #C4C0B7;
+  --primitive-acid-yellow: #D8C34D;
+
+  /* Legacy Brand Kit Primitives (for backwards-compatible pairing) */
   --primitive-crimson: #EB0E31;
   --primitive-crimson-rgb: 235, 14, 49;
   --primitive-coral: #FDA2AC;
   --primitive-coral-rgb: 253, 162, 172;
-  --primitive-plum: #33212C;
-  --primitive-plum-rgb: 51, 33, 44;
-  --primitive-plum-deep: #1E131A;
-  --primitive-sand: #D8CFC2;
-  --primitive-sand-rgb: 216, 207, 194;
+  --primitive-plum: #171719;
+  --primitive-plum-rgb: 23, 23, 25;
+  --primitive-plum-deep: #101012;
+  --primitive-sand: #E6E2DA;
+  --primitive-sand-rgb: 230, 226, 218;
   --primitive-sand-light: #F4EFEA;
-  --primitive-yellow: #E7C75A;
-  --primitive-yellow-rgb: 231, 199, 90;
+  --primitive-yellow: #D8C34D;
+  --primitive-yellow-rgb: 216, 195, 77;
 
   /* ==========================================================================
      Tier 2: Semantic Intent Tokens

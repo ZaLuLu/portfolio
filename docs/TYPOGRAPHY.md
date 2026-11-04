@@ -1,60 +1,51 @@
 # RED THREAD — Typography Specification
 
-**Status:** Role system approved; actual typeface selection pending.
+> **Status:** Finalized Creative Direction  
+> **Primary Display:** Space Grotesk  
+> **Body / UI:** Inter  
+> **Technical / Metadata:** IBM Plex Mono  
 
-## 1. Typography principles
+---
 
-Typography should feel editorial and art-directed, not like a generic SaaS dashboard. Use no more than three principal families unless a specific language/script requirement justifies another.
+## 1. Typography Principles
 
-## 2. Proposed roles
+Typography should feel contemporary, expressive and confident. The previous Instrument Serif-led editorial direction is no longer the primary direction. Use no more than three primary font families unless an exceptional script requirement justifies another.
 
-| Role | Candidate | Usage |
-|---|---|---|
-| Display / editorial | Instrument Serif **or** Space Grotesk | Large titles, opening statements, section headlines |
-| Reading / UI | Inter **or** DM Sans | Body copy, project descriptions, navigation and controls |
-| Metadata / technical | IBM Plex Mono | Captions, indices, dates, project metadata and CRT copy |
+---
 
-These are candidates, not final selections. Do not install all alternatives. Compare real specimens with the brand palette and portrait before choosing.
+## 2. Approved Font Roles
 
-## 3. Recommended initial pairing to test
+| Role | Face | Purpose |
+| :--- | :--- | :--- |
+| **Primary Display** | `Space Grotesk` | Main headings and expressive typography |
+| **Body & UI** | `Inter` | Reading, narrative copy, navigation and interface controls |
+| **Technical** | `IBM Plex Mono` | Selected technical information, indices, and code snippets |
 
-- Display: Instrument Serif for expressive editorial contrast.
-- Reading: Inter for neutral, robust readability.
-- Metadata: IBM Plex Mono for technical/editorial indexing.
+*Alternative display candidates for benchmark comparison if requested: Sora, Manrope, General Sans, Plus Jakarta Sans.*
 
-Alternative direction: Space Grotesk + Inter + IBM Plex Mono if the serif feels too literary.
+---
 
-## 4. Hierarchy tokens
+## 3. Hierarchy Tokens
 
-Start with fluid sizes and refine in browser. These are starting values, not immutable rules.
+Fluid responsive sizing tokens:
 
-| Token | Desktop starting range | Use |
-|---|---:|---|
-| `--type-display` | `clamp(4rem, 10vw, 10rem)` | Opening title |
-| `--type-h1` | `clamp(3rem, 7vw, 7rem)` | Section headline |
-| `--type-h2` | `clamp(2rem, 4vw, 4rem)` | Project / subsection |
-| `--type-h3` | `1.35rem–2rem` | Card / article title |
-| `--type-body` | `1rem–1.125rem` | Reading text |
-| `--type-small` | `0.8rem–0.9rem` | Captions |
-| `--type-micro` | `0.68rem–0.75rem` | Metadata, only when legible |
+| Token | Desktop Range | Mobile Range | Intended Use |
+| :--- | :--- | :--- | :--- |
+| `--type-display` | `clamp(3.5rem, 8vw, 7.5rem)` | `clamp(2.5rem, 6vw, 3.5rem)` | Environmental arrival statements |
+| `--type-h1` | `clamp(2.5rem, 5vw, 5rem)` | `clamp(2rem, 4.5vw, 2.5rem)` | Scene headlines |
+| `--type-h2` | `clamp(1.75rem, 3.2vw, 3rem)` | `clamp(1.4rem, 2.8vw, 1.75rem)` | Project titles & major subdivisions |
+| `--type-h3` | `clamp(1.2rem, 2vw, 1.75rem)` | `clamp(1.1rem, 1.8vw, 1.25rem)` | Section subtitles & article headers |
+| `--type-body` | `1rem–1.125rem` | `0.95rem–1rem` | Reading text |
+| `--type-small` | `0.85rem–0.9rem` | `0.8rem–0.85rem` | Captions & supporting notes |
+| `--type-micro` | `0.72rem–0.78rem` | `0.7rem` | Metadata (only when strictly legible) |
 
-Body copy should generally use comfortable line lengths and line-height around 1.5–1.7. Large display text may use tighter line-height and carefully controlled tracking.
+---
 
-## 5. Usage rules
+## 4. Typography Rules & Invariants
 
-- Use display type for expressive moments, not long paragraphs.
-- Body type must remain readable on mobile.
-- Monospace is for metadata and terminal-like details, not every heading.
-- Avoid excessive all-caps.
-- Do not use Japanese glyphs as decoration.
-- Do not stretch or distort fonts to force a layout.
-- Self-host licensed font files where possible; record source and licence.
-- Test actual font rendering and layout shift before launch.
-
-## 6. Required decisions before implementation freeze
-
-1. Compare Instrument Serif vs Space Grotesk for display.
-2. Compare Inter vs DM Sans for body.
-3. Confirm IBM Plex Mono for metadata.
-4. Check font licences and self-hosting options.
-5. Review hierarchy on desktop, tablet and mobile.
+- **Independent Headings:** Main headings stand on their own. Never place an eyebrow, uppercase category tag, or micro-label above a title just to fill space.
+- **Sentence Case Default:** Sentence case is the universal default. Avoid excessive all-caps typography.
+- **Readable Body Text:** Robert Bringhurst measure of $45\text{--}75\text{ch}$ (optimal $65\text{ch}$).
+- **Restrained Monospace:** Use monospace typography only where it has a genuine technical purpose (code, paths, schemas, technical specs). Never sprinkle monospace text as decorative technical noise.
+- **No Distortion:** Do not artificially stretch, squeeze, or apply aggressive glitch shaders to text.
+- **Animation Independence:** Typography must remain fully readable and functional when JavaScript or animation is disabled.

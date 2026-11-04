@@ -5,6 +5,13 @@
 @import "./print.css";
 
 @theme {
+  --color-obsidian: var(--primitive-obsidian);
+  --color-signal-red: var(--primitive-signal-red);
+  --color-chalk: var(--primitive-chalk);
+  --color-electric-blue: var(--primitive-electric-blue);
+  --color-concrete: var(--primitive-concrete);
+  --color-acid-yellow: var(--primitive-acid-yellow);
+
   --color-crimson: var(--primitive-crimson);
   --color-coral: var(--primitive-coral);
   --color-plum: var(--primitive-plum);
