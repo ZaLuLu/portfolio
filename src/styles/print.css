@@ -1,0 +1,54 @@
+@media print {
+  /* Reset print canvas */
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #1a1a1a !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  /* Hide screen-only chrome & navigation */
+  .no-print,
+  nav,
+  header.site-header,
+  footer.site-footer,
+  .crt-effects,
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* Page break rules */
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 85%;
+    color: #555555;
+  }
+
+  /* Do not show href on internal anchors or javascript */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+}

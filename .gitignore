@@ -5,6 +5,7 @@ node_modules/
 # Production builds
 dist/
 build/
+*.tsbuildinfo
 .astro/
 .next/
 out/

@@ -1,5 +1,8 @@
 # Portfolio intake questionnaire
 
+> [!NOTE]
+> **Active Intake Record:** The confirmed responses to this intake questionnaire are documented in [`QUESTIONS_answered.md`](QUESTIONS_answered.md).
+
 Fill this file in place. Short answers and links are enough; write `TBD` for anything undecided. The **Essential answers** section is what I need before drafting a truthful site. The later sections help make it distinctive and complete.
 
 Do not put passwords, API keys, private client material, or other secrets in this file. For confidential work, describe what may be shown publicly.

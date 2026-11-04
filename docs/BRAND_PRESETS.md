@@ -1,6 +1,9 @@
 # Color and brand presets
 
-These are starting palettes, not a final identity. Choose one in [QUESTIONS.md](QUESTIONS.md), or supply brand colors later. All colors are grouped by **semantic role** so the site can switch palettes without rewriting components. Use the designated `on-accent` color on accent backgrounds; avoid placing arbitrary text colors on them.
+> [!NOTE]
+> **Superseded by RED THREAD Brand Kit:** The provisional presets below have been superseded by the official 5-colour RED THREAD palette (Crimson `#EB0E31`, Plum `#33212C`, Sand `#D8CFC2`, Coral `#FDA2AC`, Canary Yellow `#E7C75A`) documented in [`../brand/01_Brand_Guidelines/Brand_Guidelines.md`](../brand/01_Brand_Guidelines/Brand_Guidelines.md) and encoded in [`../src/styles/tokens.css`](../src/styles/tokens.css).
+
+These were initial starting palettes before brand kit finalization. All colors are grouped by **semantic role** so the site can switch palettes without rewriting components.
 
 | Role | 01 · Warm Editorial | 02 · Night Studio | 03 · Plum Archive | 04 · Cobalt Field |
 | --- | --- | --- | --- | --- |

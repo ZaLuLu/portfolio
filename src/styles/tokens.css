@@ -1,0 +1,74 @@
+:root {
+  /* ==========================================================================
+     Tier 1: Global Brand Primitives (RED THREAD / Wafiq Brand Kit)
+     ========================================================================== */
+  --primitive-crimson: #EB0E31;
+  --primitive-crimson-rgb: 235, 14, 49;
+  --primitive-coral: #FDA2AC;
+  --primitive-coral-rgb: 253, 162, 172;
+  --primitive-plum: #33212C;
+  --primitive-plum-rgb: 51, 33, 44;
+  --primitive-plum-deep: #1E131A;
+  --primitive-sand: #D8CFC2;
+  --primitive-sand-rgb: 216, 207, 194;
+  --primitive-sand-light: #F4EFEA;
+  --primitive-yellow: #E7C75A;
+  --primitive-yellow-rgb: 231, 199, 90;
+
+  /* ==========================================================================
+     Tier 2: Semantic Intent Tokens
+     ========================================================================== */
+  --bg-canvas: var(--primitive-plum);
+  --bg-canvas-deep: var(--primitive-plum-deep);
+  --bg-surface: #3E2936;
+  --bg-surface-elevated: #4B3342;
+  --bg-card: rgba(62, 41, 54, 0.7);
+
+  --text-main: var(--primitive-sand);
+  --text-bright: var(--primitive-sand-light);
+  --text-muted: #B3A89A;
+  --text-faint: #857A6E;
+
+  --accent-signature: var(--primitive-crimson);
+  --accent-signature-hover: #FF2B4D;
+  --accent-companion: var(--primitive-coral);
+  --accent-highlight: var(--primitive-yellow);
+
+  --border-subtle: rgba(216, 207, 194, 0.15);
+  --border-medium: rgba(216, 207, 194, 0.3);
+  --border-accent: rgba(235, 14, 49, 0.6);
+
+  --focus-ring: #EB0E31;
+  --focus-offset: 3px;
+
+  /* Spatial Geometry & Fluid Rhythm */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  --measure-optimal: 65ch;
+  --measure-max: 75ch;
+
+  /* CRT Gateway Specific Tokens */
+  --crt-phosphor: #FDA2AC;
+  --crt-glow: rgba(235, 14, 49, 0.25);
+  --crt-amber: #E7C75A;
+}
+
+/* Light / Print context overrides */
+[data-theme="light"] {
+  --bg-canvas: var(--primitive-sand-light);
+  --bg-canvas-deep: #EBE5DC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F9F7F4;
+  --bg-card: #FFFFFF;
+
+  --text-main: var(--primitive-plum);
+  --text-bright: #1E131A;
+  --text-muted: #5E4A56;
+  --text-faint: #8E7A86;
+
+  --border-subtle: rgba(51, 33, 44, 0.15);
+  --border-medium: rgba(51, 33, 44, 0.3);
+}
